@@ -196,13 +196,13 @@
       "mscorlib.dll": "sha256-Q4A\/043fz702a7DDbm+JAtMHV3jKAZ9k8khztTMKp2M=",
       "netstandard.dll": "sha256-W9cwgVmBZsddVw3WVFMC5Gya92UufvbVTNR4+u7pnR0=",
       "System.Private.CoreLib.dll": "sha256-KVnZkFos\/ML\/3S2isVijfmFZXO4zEQeCga6BZvGdTbY=",
-      "Wordle.dll": "sha256-jHkl7l1GPxe9SgeKGoyzhBy6vO3dbYrJF3WNOb5qMuQ="
+      "Wordle.dll": "sha256-VI6avpTjMlXaLe+CiM3E8GTBbJCDzT1pb\/fyt\/H4WtI="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
-      "Wordle.pdb": "sha256-ghCk9UM9DnfkacJppl65zC8qp9DuoU9NQbKRwRQYLR8="
+      "Wordle.pdb": "sha256-vW\/Q5ZmQy5nUmlRGGkqjk0xSr9ZQhqegrd0oZEcE+yw="
     },
     "runtime": {
       "dotnet.6.0.4.zmho1q6jn4.js": "sha256-WYno\/cK5MDsl5yi4T\/\/QgUskbBfhLL77i+c0uKzO9+c=",
