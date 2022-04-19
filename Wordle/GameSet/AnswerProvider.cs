@@ -1,4 +1,6 @@
-﻿    public class AnswerProvider
+﻿namespace Wordle.GameSet
+{
+    public class AnswerProvider
     {
         private static readonly List<string> WordList = new();
         private static readonly Random Random = new();
@@ -26,3 +28,4 @@
             WordList.AddRange(fileContent.Split(Environment.NewLine));
         }
     }
+}

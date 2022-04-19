@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using MudBlazor.Services;
+using Wordle.GameSet;
 using Wordle;
 
 //var builder = WebAssemblyHostBuilder.CreateDefault(args);
@@ -23,6 +25,8 @@ builder.Services.AddSingleton(
         return new AnswerProvider(httpClient, filePath);
     });
 builder.Services.AddTransient(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+builder.Services.AddMudServices();
+
 
 
 await builder.Build().RunAsync();

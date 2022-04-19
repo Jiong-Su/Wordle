@@ -1,24 +1,26 @@
-﻿@*@using GameLogic*@
+﻿@using Wordle.GameSet
 @inject Game _game
 @inject GameInput _gameInput
-<div id="container" tabindex="0" @onkeydown="OnKeyDown" @ref="_container" @onfocusout="CatchFocus">
-    <div class="keyboard-row">
-        <KeyboardRow KeysToGenerate="_keyboardRows[0]" />
-    </div>
-    <div class="keyboard-row">
-        <KeyboardRow KeysToGenerate="_keyboardRows[1]" />
-    </div>
-    <div class="keyboard-row">
-        <div>
-            <div class="key-button letter-container" @onclick="_ => Guess()" >enter</div>
-        </div>
-        <KeyboardRow KeysToGenerate="_keyboardRows[2]"/>
-        <div>
-            <div class="key-button letter-container" @onclick="_ => Back()" >back</div>
-        </div>
-    </div>
-</div>
 
+<div id="container" tabindex="0" @onkeydown="OnKeyDown" @ref="_container" @onfocusout="CatchFocus">
+    <MudGrid Justify="Justify.Center" Spacing="1">
+        <KeyRow KeysToGenerate="_keyboardRows[0]" />
+    </MudGrid>
+    <MudGrid Justify="Justify.Center" Spacing="1">
+        <KeyRow KeysToGenerate="_keyboardRows[1]" />
+    </MudGrid>
+    <MudGrid Justify="Justify.Center" Spacing="1">
+        <MudItem xs="2" Class="d-flex justify-center">
+            <MudButton Variant="Variant.Filled" Color="@Color.Info" Class="black-gold-container key-button"
+                       @onclick="_ => Guess()" >enter</MudButton>
+        </MudItem>
+        <KeyRow KeysToGenerate="_keyboardRows[2]"/>
+        <MudItem xs="2" Class="d-flex justify-center">
+            <MudIconButton Icon="@Icons.Material.Outlined.Backspace" Variant="Variant.Filled" Color="Color.Info" Class="black-gold-container key-button"
+                           @onclick="_ => Back()"/>
+        </MudItem>
+    </MudGrid>
+</div>
 @code {
     private ElementReference _container;
     private char[][] _keyboardRows = {

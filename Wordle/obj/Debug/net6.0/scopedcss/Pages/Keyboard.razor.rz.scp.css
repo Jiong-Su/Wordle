@@ -1,0 +1,12 @@
+#container:focus-visible[b-80z50govht] {
+    outline: none;
+}
+
+#container:focus[b-80z50govht] {
+    outline: none;
+}
+
+#container[b-80z50govht] {
+    min-width: 420px;
+    width: 720px;
+}

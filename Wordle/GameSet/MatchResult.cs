@@ -1,6 +1,9 @@
-﻿public enum MatchResult
+﻿namespace Wordle.GameSet
 {
-    NoneHit,
-    CharHit,
-    FullHit
+    public enum MatchResult
+    {
+        NoneHit,
+        CharHit,
+        FullHit
+    }
 }

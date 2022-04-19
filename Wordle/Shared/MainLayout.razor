@@ -1,17 +1,38 @@
-﻿@inherits LayoutComponentBase
+﻿@using Wordle.GameSet
+@inherits LayoutComponentBase
+@inject Game _game
+@inject GameInput _gameInput
+@inject AnswerProvider _answerProvider
+@implements IDisposable
 
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
+<MudThemeProvider IsDarkMode="true" />
+<MudDialogProvider />
+<MudSnackbarProvider />
 
-    <main>
-        <div class="top-row px-4">
-            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
-        </div>
-
-        <article class="content px-4">
+<MudLayout>
+    <MudAppBar Elevation="0">
+        <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit" Link="https://github.com/ferrywlto/EICS.Muddle" Target="_blank"/>
+        <MudText Typo="Typo.h4" Align="Align.Center" Style="width: 100%;">Wordle</MudText>
+        <MudIconButton Icon="@Icons.Material.Filled.Refresh" Color="Color.Inherit" OnClick="ResetGame" Disabled="!CanReset"/>
+    </MudAppBar>
+    <MudMainContent>
+        <MudContainer MaxWidth="MaxWidth.Large">
             @Body
-        </article>
-    </main>
-</div>
+        </MudContainer>
+    </MudMainContent>
+</MudLayout>
+
+@code {
+    private bool CanReset => _game.IsLose || _game.IsWin;
+    private async Task ResetGame() {
+        var answer = await _answerProvider.GetNewAnswer();
+        _game.Reset(answer, 6);
+        _gameInput.Reset(answer.Length);
+    }
+
+    public void Dispose() {
+        _game.GameUpdated -= OnGameUpdated;
+    }
+    protected override void OnInitialized() { _game.GameUpdated += OnGameUpdated; }
+    private void OnGameUpdated() { InvokeAsync(StateHasChanged); }
+}

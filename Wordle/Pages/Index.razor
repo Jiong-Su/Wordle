@@ -1,42 +1,50 @@
 ﻿@page "/"
+@using Wordle.GameSet
 @inject Game _game
 @inject GameInput _gameInput
 @inject AnswerProvider _answerProvider
 @implements IDisposable
 
-<div class="app mx-auto">
-    <div class="my-row">
-        <div class="top">
-        @if (_game.IsLose) {
-            <div class="my-row mb-1 alert-warning">
-                @_game.Answer.ToUpper()
-            </div>
-            <br/>
-        }
-        @foreach (var guessResult in _game.Results) {
-            <div class="my-row mb-1">
+<div class="top">
+<MudGrid Justify="Justify.Center" Spacing="1">
+    @if (_game.IsLose) {
+        <MudAlert Severity="Severity.Warning" Variant="Variant.Filled" Elevation="24" NoIcon="true" ContentAlignment="HorizontalAlignment.Center" Style="max-width: 480px;">
+            @_game.Answer.ToUpper()
+        </MudAlert>
+        <br/>
+    }
+    @foreach (var guessResult in _game.Results) {
+        <MudItem Class="d-flex justify-center" xs="12">
+            <div class="letter-box-row">
                 @foreach ((var letter, var matchResult) in guessResult) {
-                    <LetterBox Letter="letter" MatchResult="matchResult" />
+                    <LetterBox Letter="letter" MatchResult="matchResult"/>
                 }
             </div>
-        }
-        @if (_game.IsWin) {
-            <div class="my-row mb-16 alert-success">Congratuations!</div>
-        }
-        else if(!_game.IsLose) {
-            <div class="my-row mb-16">
+        </MudItem>
+        <br/>
+    }
+    @if (_game.IsWin) {
+        <MudAlert Severity="Severity.Success" Variant="Variant.Filled" Elevation="24" NoIcon="true" ContentAlignment="HorizontalAlignment.Center" Style="max-width: 480px;">Congratuations!</MudAlert>
+    }
+    else if(!_game.IsLose) {
+        <MudItem Class="d-flex justify-center" xs="12">
+            <div class="letter-box-row">
                 @for (var i = 0; i < _game.Answer.Length; i += 1) {
                     var idx = i;
                     <InputLetterBox Letter="_gameInput.GetInputAt(idx)"/>
                 }
             </div>
-        }
-        </div>
-    </div>
-    <div class="my-row">
-        <Keyboard/>
-    </div>
+        </MudItem>
+        <br/>
+    }
+    <br/>
+</MudGrid>
 </div>
+<br/>
+<div class="input-row">
+        <Keyboard/>
+</div>
+
 @code {
     public void Dispose() {
         _game.GameUpdated -= OnGameUpdated;
@@ -53,4 +61,5 @@
 
     private void OnInputChanged() { InvokeAsync(StateHasChanged); }
     private void OnGameUpdated() { InvokeAsync(StateHasChanged); }
+
 }
