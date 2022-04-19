@@ -1,0 +1,23 @@
+﻿@inject Game _game
+
+<div Class=@("key-button " + GetCssStyle()) onclick="@OnClick">@Text</div>
+
+@code {
+    [Parameter]
+    public char Text { get; set; }
+
+    [Parameter]
+    public Action<MouseEventArgs> OnClick { get; set; } = null!;
+
+    private string GetCssStyle() {
+        if (!_game.Distribution.ContainsKey(Text)) return "letter-container";
+
+        var matchResult = _game.Distribution[Text];
+        return matchResult switch {
+            MatchResult.NoneHit => "btn-not-hit",
+            MatchResult.CharHit => "btn-partial-hit",
+            MatchResult.FullHit => "btn-full-hit",
+            _ => string.Empty
+        };
+    }
+}

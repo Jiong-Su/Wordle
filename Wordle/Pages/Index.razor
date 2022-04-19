@@ -1,10 +1,57 @@
 ﻿@page "/"
+@using Wordle.Pages.Input
+@inject Game _game
+@inject GameInput _gameInput
+@inject AnswerProvider _answerProvider
+@implements IDisposable
 
-<PageTitle>Index</PageTitle>
+<div class="app mx-auto">
+    <div class="my-row">
+        <div class="top">
+        @if (_game.IsLose) {
+            <div class="my-row mb-1 alert-warning">
+                @_game.Answer.ToUpper()
+            </div>
+            <br/>
+        }
+        @foreach (var guessResult in _game.Results) {
+            <div class="my-row mb-1">
+                @foreach ((var letter, var matchResult) in guessResult) {
+                    <LetterBox Letter="letter" MatchResult="matchResult" />
+                }
+            </div>
+        }
+        @if (_game.IsWin) {
+            <div class="my-row mb-16 alert-success">Congratuations!</div>
+        }
+        else if(!_game.IsLose) {
+            <div class="my-row mb-16">
+                @for (var i = 0; i < _game.Answer.Length; i += 1) {
+                    var idx = i;
+                    <InputLetterBox Letter="_gameInput.GetInputAt(idx)"/>
+                }
+            </div>
+        }
+        </div>
+    </div>
+    <div class="my-row">
+        <Keyboard/>
+    </div>
+</div>
+@code {
+    public void Dispose() {
+        _game.GameUpdated -= OnGameUpdated;
+        _gameInput.InputChanged -= OnInputChanged;
+    }
+    protected override async Task OnInitializedAsync() {
+        _game.GameUpdated += OnGameUpdated;
+        _gameInput.InputChanged += OnInputChanged;
 
-<h1>Hello, world!</h1>
+        var answer = await _answerProvider.GetNewAnswer();
+        _game.Reset(answer, 6);
+        _gameInput.Reset(answer.Length);
+    }
 
-Welcome to Wordle!
-
-<SurveyPrompt Title="How is Blazor working for you?" />
-
+    private void OnInputChanged() { InvokeAsync(StateHasChanged); }
+    private void OnGameUpdated() { InvokeAsync(StateHasChanged); }
+}

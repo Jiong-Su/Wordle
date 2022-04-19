@@ -1,0 +1,13 @@
+﻿<div Class=@("tile " + GetCssClass())>@Letter</div>
+
+@code {
+    [Parameter]
+    public char Letter { get; set; }
+
+    private string GetCssClass() {
+        return Letter switch {
+            ' ' => "tile-empty",
+            _ => "tile-input"
+            };
+    }
+}
