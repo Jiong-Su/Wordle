@@ -1,0 +1,10 @@
+#container:focus-visible[b-bnwakbe42c] {
+    outline: none;
+}
+#container:focus[b-bnwakbe42c] {
+    outline: none;
+}
+#container[b-bnwakbe42c] {
+    min-width: 420px;
+    width: 50px;
+}

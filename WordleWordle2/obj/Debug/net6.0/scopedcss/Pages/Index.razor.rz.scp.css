@@ -1,0 +1,27 @@
+
+.letter-box-row[b-46hm74mpuv] {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100%;
+    min-width: 400px;
+}
+
+.input-row[b-46hm74mpuv] {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100%;
+}
+
+.top[b-46hm74mpuv] {
+    margin-top: 1vh;
+    height: 500px;
+    max-height: 500px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .top[b-46hm74mpuv]::-webkit-scrollbar {
+        display: none;
+    }

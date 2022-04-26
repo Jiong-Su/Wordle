@@ -1,0 +1,11 @@
+.tile-input[b-0o5j670bc9] {
+    font-weight: bold;
+    background-color: black;
+    color: wheat;
+    border: 2px solid wheat;
+}
+.tile-empty[b-0o5j670bc9] {
+    font-weight: bold;
+    background-color: dimgrey;
+    border: 2px solid grey;
+}

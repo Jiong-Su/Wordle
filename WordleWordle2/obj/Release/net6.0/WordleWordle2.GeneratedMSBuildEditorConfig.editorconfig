@@ -1,0 +1,55 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = browser
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = true
+build_property.IncludeAllContentForSelfExtract = 
+build_property.RootNamespace = WordleWordle2
+build_property.RootNamespace = WordleWordle2
+build_property.ProjectDir = C:\Users\Kami\Documents\GitHub\Wordle\WordleWordle2\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\Kami\Documents\GitHub\Wordle\WordleWordle2
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/Kami/Documents/GitHub/Wordle/WordleWordle2/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kami/Documents/GitHub/Wordle/WordleWordle2/Pages/KeyRow.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcS2V5Um93LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kami/Documents/GitHub/Wordle/WordleWordle2/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kami/Documents/GitHub/Wordle/WordleWordle2/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-46hm74mpuv
+
+[C:/Users/Kami/Documents/GitHub/Wordle/WordleWordle2/Pages/InputLetterBox.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5wdXRMZXR0ZXJCb3gucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-0o5j670bc9
+
+[C:/Users/Kami/Documents/GitHub/Wordle/WordleWordle2/Pages/Keyboard.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcS2V5Ym9hcmQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-bnwakbe42c
+
+[C:/Users/Kami/Documents/GitHub/Wordle/WordleWordle2/Pages/KeyboardButton.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcS2V5Ym9hcmRCdXR0b24ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-gos3nyl691
+
+[C:/Users/Kami/Documents/GitHub/Wordle/WordleWordle2/Pages/LetterBox.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGV0dGVyQm94LnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-zylfflm2pm
+
+[C:/Users/Kami/Documents/GitHub/Wordle/WordleWordle2/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-2499nm9baq
